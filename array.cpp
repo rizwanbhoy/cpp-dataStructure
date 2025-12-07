@@ -93,6 +93,52 @@ public :
             cout << " ]" << endl ;
             
         }
+
+        void deleteFromFirst(){
+            if(capacity == 0){
+                cout << "Array is Empty \n" ;
+                return ;
+            }
+         
+            for (int i = 1; i < size; i++)
+            {
+                numbers[i-1] = numbers[i] ;
+            }
+
+            size -- ;
+        }
+
+        void deleteFromMid(int index){
+            if(capacity == 0){
+                cout << "Array is Empty \n" ;
+                return ;
+            }
+
+            if (index == 0)
+            {
+                deleteFromFirst();
+                return ;
+            }
+            
+
+            for (int i = index; i < size -1; i++)
+            {
+                numbers[i] = numbers[i+1]; 
+            }
+
+            size -- ;
+            
+        }
+        
+        void deleteFromLast(){
+            if(capacity == 0){
+                cout << "Array is empty \n";
+                return ;
+            }
+            size -- ;
+            
+        }
+
 };
 
 int main(){
@@ -112,6 +158,16 @@ int main(){
     cout << "insertAt mid called \n";
     arr.insertAtMid(5 , 15);
     arr.printArray();
+    cout << "delete from last \n";
+    arr.deleteFromFirst();
+    arr.printArray();
 
+    cout << "delete From Last \n";
+    arr.deleteFromLast();
+    arr.printArray();
+
+    cout << "Delete From Mid \n";
+    arr.deleteFromMid(3);
+    arr.printArray();
     return 0 ;
 }
